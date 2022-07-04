@@ -1,0 +1,29 @@
+O QUE É SOFTWARE?
+
+Em termos práticos, o software é uma coleção de dados ou instruções que informam a um mecanismo como trabalhar. Ele, nada mais é do que um programa que você acessa no celular, tablet, PC, ou qualquer outro dispositivo eletrônico.
+
+Um dos primeiros relatos de um software desenvolvido foi registrado no século XIX. Ada Lovelace, conhecida como a primeira programadora, escreveu um algoritmo que fazia com que a Máquina Analítica fosse capaz de calcular uma sequência conhecida como Números de Bernoulli.
+Ada Lovelace desenvolveu o primeiro software para a Máquina Analítica 
+
+No entanto, o termo “software” foi criado apenas na década de 1940 como um trocadilho com o termo hardware. Trocando a parte “Hard” (rígido) para “Soft” (macio), o software seria tudo o que não está ligado à parte física de um dispositivo.
+Tipos de software
+
+De maneira geral, baseado no objetivo, os softwares podem ser divididos em duas grandes categorias: "softwares de sistema" e "softwares aplicativo".
+
+SOFTWARES DE SISTEMA
+
+Um software de sistema é responsável por gerenciar o comportamento do hardware de um dispositivo. Assim, ele oferece funcionalidades básicas exigidas pelos usuários, ou até mesmo por outros softwares. Alguns exemplos mais comuns:
+
+    Sistemas operacionais, como Windows, macOS, Android ou iOS;
+
+    Engines de jogos, como Unity, Unreal e Cry Engine;
+
+    Firmwares, que fornecem controle de baixo nível para o hardware;
+
+    Drivers.
+
+SOFTWARES DE APLICATIVOS
+
+Softwares aplicativo são aqueles que permitem os usuários realizarem uma ou mais tarefas específicas. São, em sua maioria, os softwares que você utiliza diariamente no celular ou no PC, como redes sociais, navegadores, jogos e muitos outros.
+
+O software é uma parte do computador que năo pode ser tocada e vista. Para fazer o trabalho de hardware, você precisa do software nele.
