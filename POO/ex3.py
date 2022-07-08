@@ -29,11 +29,29 @@ class Retangulo:
         print(f'A área total é {self.largura * self.comprimento}')
 
 
+    def calcular_perimetro1(self):
+        print(f'O perimêtro deste Retângulo é {(self.largura + self.comprimento) * 2}')
+
+
     def calcular_perimetro(self):
-        print(f'O perimêtro deste triângulo é {(self.largura + self.comprimento) * 2}')
+         return (self.largura + self.comprimento) * 2
 
 
-r1 = Retangulo
+    def calcular_q_pisos(self):
+        print()
+
+
+sala = Retangulo(500, 300)
+piso = Retangulo(40, 25)
+
+sala.calcular_area()
+piso.calcular_area()
+# qp = (sala / piso)
+print(f'Quantidade de rodapés necessario {sala.calcular_perimetro()}')
+# print(f'Quantidade de pisos necessário é {qp}')
+sala.calcular_perimetro1()
+piso.valor_lados()
+
 
 
 
