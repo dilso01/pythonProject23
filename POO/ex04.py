@@ -43,7 +43,7 @@ class bomba_combustivel:
         print(f'Valor do abastecimento será {self.valor_Litro * litros}')
 
 
-b1 = bomba_combustivel('Gasolina' , 100)
+b1 = bomba_combustivel('Gasolina', 100)
 print(b1.tipo_Combustivel)
 print(b1.valor_Litro)
 print(b1.abastecer_Por_Valor(100))

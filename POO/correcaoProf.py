@@ -41,7 +41,7 @@ class Lata:
 
 
     def amassar(self):
-        if  not self.amassada and self.volume == 0:
+        if not self.amassada and self.volume == 0:
             print('Lata amassada')
             self.amassada = True
         else:
