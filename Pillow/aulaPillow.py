@@ -1,4 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
+from time import sleep
 # carregar ou importar uma imagem
 # im = Image.open('cão.png')
 # im.show()
@@ -29,16 +30,16 @@ from PIL import Image, ImageDraw, ImageFont
 
 #  Criar uma imagem dividida em dois
 
-im = Image.new('RGB', (150, 150), (0, 0, 0))
-x, y = im.size
-for i in range(x):
-    for j in range(y):
-        if i < x // 2:
-            im.putpixel((i, j), (255, 255, 255))
-im2 = ImageDraw.Draw(im)
-im2.ellipse((x//2-50, y//2-50, x//2+50, y//2+50), fill=(0, 0, 255))
-
-im.show()
+# im = Image.new('RGB', (150, 150), (0, 0, 0))
+# x, y = im.size
+# for i in range(x):
+#     for j in range(y):
+#         if i < x // 2:
+#             im.putpixel((i, j), (255, 255, 255))
+# im2 = ImageDraw.Draw(im)
+# im2.ellipse((x//2-50, y//2-50, x//2+50, y//2+50), fill=(0, 0, 255))
+#
+# im.show()
 
 # Trocar o valor das cores das imagens
 # im. = Image.open('cão.png')
@@ -56,13 +57,14 @@ im.show()
 # comprimir a imagem
 
 # criar uma mascara
-# im1 = Image.open('cão.png')
-# im2 = Image.open('PNG_transparency_demonstration_1.png')
-# mask = Image.new('L', im1.size)
-# # draw.rectangle((0, 0, 427, 327), fill=255)
-# im = Image.composite(im1, im2, mask)
-# im.show()
-
+im1 = Image.open('cão.png')
+im2 = Image.open('PNG_transparency_demonstration_1.png')
+mask = Image.new('L', im1.size)
+# draw.rectangle((0, 0, 427, 327), fill=255)
+im = Image.composite(im1, im2, mask)
+im.show()
+sleep(2)
+im.close()
 # como escrever na imagem
 # local C:\Windows\Fonts\ALGER
 #

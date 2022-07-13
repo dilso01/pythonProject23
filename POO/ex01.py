@@ -1,6 +1,7 @@
 ''' fazer classe mãe chamada animal, e classes filhas
 ex: felinos, caninos, reptil, ovinos, peixes , aves
 '''
+from abc import ABC, abstractmethod
 
 class Animal:
     def __init__(self, patas, pele, tipo_alimento, sexo):
@@ -9,7 +10,7 @@ class Animal:
         self.tipo_alimento = tipo_alimento
         self.sexo = sexo
 
-
+    @abstractmethod
     def comer(self):
         print('Comendo....')
 
@@ -39,6 +40,9 @@ class Felinos(Animal):
         else:
             print('Hora da diversão, não estou com fome agora')
 
+    def comer(self):
+        print('Miaaauuu')
+
 
     def ini_cacar(self):
         self.cacar = True
@@ -66,6 +70,10 @@ class Reptil(Animal):
         print('Minha pele está sendo renovada...')
 
 
+    def comer(self):
+        print('Hora de ir pro sol')
+
+
 class Humano(Animal):
     def __init__(self, patas, pele, tipo_alimento, sexo, estilo_roupa, pensar=True):
         super().__init__(patas, pele, tipo_alimento, sexo)
@@ -76,6 +84,8 @@ class Humano(Animal):
     def estudar(self):
         print('Estudando...')
 
+    def comer(self):
+        print('Estou satisfeito agora')
 
     def falar(self):
         print('Falando...')
@@ -98,7 +108,8 @@ class Peixes(Animal):
     def nadar(self):
         print('Nadando...')
 
-
+    def comer(self):
+        print('glub glub...')
     def parar_nadar(self):
         print('Não está nadando')
 
@@ -108,11 +119,14 @@ class Peixes(Animal):
     def ir_superficie(self):
         print('Está na superfície...')
 
-
+h1 = Humano(4, 'couro', 'carne e salada', 'M', 'social')
 tigre = Felinos(4, 'pelos', 'carne', 'M', )
 tigre.cacando()
 tigre.correr()
 tigre.saltar()
 tigre.comer()
-
-
+p1 = Peixes(0, 'escamas', 'racao', 'M', 4, 'amarelo')
+p1.comer()
+h1.correr()
+h1.comer()
+h1.saltar()
