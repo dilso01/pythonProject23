@@ -1,4 +1,6 @@
 import sqlite3
+from validate_docbr import CPF
+import requests
 
 conexao = sqlite3.connect('vendas.db')
 cursor = conexao.cursor()
@@ -12,10 +14,11 @@ class Cliente:
         self.estado_cliente = "None"
         self.rua_cliente = "None"
 
+
+#validar CPF
+
 #Alterar
     def alterar(self, cpf, novo_cpf, opcao):
-
-
         cursor.execute(f'UPDATE clientes SET {lista[opcao]}= "{novo_cpf}" WHERE cpf_cliente="{cpf}"')
         print('Modificação feita com sucesso')
         conexao.commit()
@@ -35,7 +38,64 @@ class Cliente:
         print('Cliente excluido com sucesso')
         conexao.commit()
 
+def validar_cpf(sera):
+    cpf = CPF()
+    cpf.validate(sera)
+    if validar_cpf:
+        print('CPF válido')
+    else:
+        print("CPF inválido")
 
+
+def receber_dados_novo_produto():
+    cod_barra = input('Digite o novo codigo de barra: ')
+    nome_produto = input('Digete o nome do produto: ')
+    fabricante_produto = input('Digite o nome do fabricante: ')
+    if validar_cod_barra(cod_barra):
+        if consultar_existencia_produto(cod_barra):
+            p1 = Produto(cod_barra, nome_produto, fabricante_produto)
+            p1.inserir_novo_produto()
+
+
+
+def validar_cod_barra(codigo_barra):
+    if len(codigo_barra) == 13:
+        return True
+    else:
+        print('Código de barras precisa de 13 dígitos')
+        return False
+
+
+def consultar_existencia_produto(cod_barra):
+    cursor.execute('SELECT * FROM produtos WHERE codigo_barras=?', (cod_barra,))
+    resultado = cursor.fetchall()
+    if len(resultado) != 0:
+        print('Produto já existe')
+        return False
+    return True
+
+
+def alterar_produto():
+    codigo_barra_antigo = input('Digite o codigo de barra do produto que quer atualizar: ')
+    codigo_barra_novo = input('Digite o novo código de barra: ')
+    if validar_cod_barra(codigo_barra_novo):
+        # if consultar_existencia_produto(codigo_barra_antigo):
+        cursor.execute(f'UPDATE produtos SET codigo_barras=? WHERE codigo_barras=?', (codigo_barra_novo, codigo_barra_antigo))
+        print('Modificação feita com sucesso')
+        conexao.commit()
+
+
+def excluir_produto():
+    codigo_excluir = input('Digite o código do produto que deseja excluir: ')
+    if codigo_excluir:
+        cursor.execute('SELECT * FROM produtos WHERE codigo_barras=?', (codigo_excluir,))
+        resultado = cursor.fetchall()
+        if len(resultado) != 0:
+            cursor.execute(f'DELETE FROM produtos WHERE codigo_barras=?', (codigo_excluir,))
+            print('Produto excluido com sucesso')
+            conexao.commit()
+            return False
+        return True
 
 
 
@@ -45,9 +105,8 @@ class Produto:
         self.nome_produto = nome_produto
         self.fabricante_produto = fabricante_produto
 
-
-    def novo_produto(self):
-        cursor.execute('INSERT INT produtos(codigo_barra, nome_produto, fabricante_produto)'
+    def inserir_novo_produto(self):
+        cursor.execute('INSERT INTO produtos(codigo_barras, nome_produto, fabricante_produto)'
                        'VALUES(?, ?, ?)', (self.codigo_barra, self.nome_produto, self.fabricante_produto))
         print('Produto cadastrado com sucesso')
         conexao.commit()
@@ -60,6 +119,28 @@ class Produto:
         conexao.commit()
 
 
+class Vendas:
+    def __init__(self, cpf_cliente, cod_barra, quantidade, valor_unitario):
+        self.cpf_cliente = cpf_cliente
+        self.cod_barra = cod_barra
+        self.quantidade = quantidade
+        self.valor_unitario = valor_unitario
+
+
+
+
+
+def verificacao_cpf(a):
+    cpf_cliente = a
+    validar_cpf(cpf_cliente)
+    print('jjj')
+
+    # cursor.execute('INSERT INT vendas(cpf_clientes, cod_barra, quantidade, valor_unitario, valor_total)'
+    #                'VALUES(?, ?, ?, ?, ?)', self.cpf_cliente, self.cod_barra, self.quantidade, self.valor_unitario, valor_total)
+    # print('Venda Realizada com sucesso')
+    # conexao.commit()
+
+
 
 def memu():
     print('''O que deseja fazer?'
@@ -68,7 +149,12 @@ def memu():
           '[3] para excluir'
           '[4] para cadastrar um Produto'
           '[5] para alterar um Produto'
-          '[6] para excluir um produto'         
+          '[6] para excluir um produto' 
+          '[7] para fazer uma nova venda'
+          '[8] para listar vendas por CPF'
+          '[9] listar vendas por codigo de barras'
+          '[10] Ranking de vendas por produto'
+          '[11] Ranking de vendas por cliente'        
           [999] para finalizar o programa''')
 
 
@@ -91,30 +177,25 @@ while True:
     elif opcao == 3:
         c1 = Cliente
         c1.excluir(opcao)
+    elif opcao == 4:
+        receber_dados_novo_produto()
+    elif opcao == 5:
+        alterar_produto()
+    elif opcao == 6:
+        excluir_produto()
+    elif opcao == 7:
+        nova_venda()
     elif opcao == 999:
         print("Finalizando o Sistema...")
         print('Programa finalizado')
         break
 
 
-
-
-
-
-
-
-
 cursor.close()
 conexao.close()
 
 
-# def novo_produto():
-#     codigo_barra = input('Digite o codigo de barra: ')
-#     nome_prudoto = int(input('Digite o nome do produto: '))
-#     fabricante_produto = input('Digite o fabricante produto: ')
-#     cursor.execute('INSERT INTO produto(codigo_barra, nome_produto, fabricante_produto)'
-#                    'VALUES(?, ?, ?, ?)', (codigo_barra, nome_prudoto, fabricante_produto))
-#     conexao.commit()
+
 #
 # def nova_venda():
 #     data_venda = input('Digite o nome: ')
