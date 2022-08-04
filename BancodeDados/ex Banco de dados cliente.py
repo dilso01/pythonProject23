@@ -131,9 +131,14 @@ class Vendas:
 
 
 def verificacao_cpf(a):
-    cpf_cliente = a
-    validar_cpf(cpf_cliente)
-    print('jjj')
+    v_cpf = a
+    cpf = CPF()
+    cpf.validate(v_cpf)
+    if v_cpf:
+        print('cpf valido')
+    elif v_cpf == False:
+        print("cpf invalido")
+
 
     # cursor.execute('INSERT INT vendas(cpf_clientes, cod_barra, quantidade, valor_unitario, valor_total)'
     #                'VALUES(?, ?, ?, ?, ?)', self.cpf_cliente, self.cod_barra, self.quantidade, self.valor_unitario, valor_total)
