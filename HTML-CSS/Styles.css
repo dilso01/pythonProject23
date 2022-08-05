@@ -3,7 +3,9 @@ h1{
 }
 body{
     text-align: center;
-    background: linear-gradient(to right, #28bcd7 0%, #2d0af5 100%);
+    /* background-image: linear-gradient(145deg, #ffffff 0, #ffffff 16.67%, #fffffe 33.33%, #f7f0f0 50%, #dbe0e0 66.67%, #c4d3d0 83.33%, #b0c7c1 100%); */
+    /* background-image: linear-gradient(150deg, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #ffffff 40%, #f7f0f0 50%, #d8dfde 60%, #becfcd 70%, #a9c3bc 80%, #9ab8ad 90%, #8fb0a0 100%); */
+    background-image: radial-gradient(circle at -11.24% 14.64%, #ffffff 0, #ffffff 8.33%, #ffffff 16.67%, #ffffff 25%, #ffffff 33.33%, #ffffff 41.67%, #f7f0f0 50%, #d9dfde 58.33%, #bfd0cd 66.67%, #aac3bd 75%, #9bb9ae 83.33%, #90b0a1 91.67%, #8aaa96 100%);
 }
 li{
     font-weight: bold;
@@ -14,22 +16,22 @@ code{
 img{
     width: 300px;
     height: 300;
-    border: 2px;
+    /* border: 2px;
     border-color: rgb(1, 1, 10);
-    border-style: solid;
+    border-style: solid; */
 }
 .tipo1{
     width: 300px;
     height: 300;
-    border: 2px;
+    /* border: 2px; */
 }
 .tipo2{
     width: 300px;
     height: 300;
-    border: 2px;
-    border-color: rgb(0, 0, 7);
-    border-style: solid;
-    border-radius: 0px;
+    /* border: 2px; */
+    /* border-color: rgb(0, 0, 7); */
+    /* border-style: solid;
+    border-radius: 0px; */
 }
 .links{
     width: 60px;
