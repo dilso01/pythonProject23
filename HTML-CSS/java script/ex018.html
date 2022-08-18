@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function calculos(a){
+            let num = parseFloat(prompt('Digite um número'))
+            
+            let resposta = document.getElementById('resposta')
+            resposta.innerHTML = `O seu valor absoluto é ${Math.abs(num)}<br>A sua parte inteira é ${Math.trunc(num)}<br>O valor inteiro mis próximo é ${Math.round(num)}<br>A sua raiz quadrada é ${Math.sqrt(num)}<br>A sua raiz cubica é ${Math.cbrt(num)}<br>O seu valor de ${num}<sup>2</sup> é ${Math.pow(num, 2)}<br>O seu valor de ${num}<sup>3</sup> é ${Math.pow(num, 3)}<br>`
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>Trabalhando com dados V2.0</h1>
+    <input type="button" value="click aqui pra começar", id="botão", onclick="calculos()">
+    <h1 id=resposta>resultado vai parecer aqui</h1>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function media(a){
+            let nome = prompt('Digite o nome do aluno:')
+            let nota1 = parseFloat(prompt('Digite um número'))
+            let nota2 = parseFloat(prompt('Digite outro número'))
+            let resposta = document.getElementById('resposta')
+            resposta.innerHTML = `Calculando a média do aluno ${nome}<br>As notas obtidas foram ${nota1} e ${nota2}<br>A média final será ${(nota1+nota2)/2} `
+            // resposta2.innerHTML = ``
+            // resposta3.innerHTML = ``
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>Trabalhando com dados V2.0</h1>
+    <input type="button" value="click aqui pra começar", id="botão", onclick="media()">
+    <h1 id=resposta>resultado vai parecer aqui</h1>
+    <!-- <h1 id=resposta2></h1>
+    <h1 id=resposta3></h1> -->
+
+</body>
+</html>
